@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/styles.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="manifest" href="/assets/site.webmanifest">
+    <link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffaba5">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/39563c90c6.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="application/javascript" src="jquery/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            setInterval(function() {
+                $.ajax({
+                    url: 'https://platform.antares.id:8443/~/antares-cse/antares-id/TempSens/TemperatureSensor',
+                    method: 'GET',
+                    headers: {
+                        'X-M2M-Origin': 'c8bcdd08f0d83396:9319ed5ed1ba50e8',
+                        'Content-Type': 'application/json;ty=4',
+                        'Accept': 'application/json'
+                    },
+                    dataType: 'json',
+                    success: function(response) {
+                        data = JSON.parse(response["m2m:cin"].con);
+                        console.log(data);
+                        $("#temp").text(data.temperature); //sesuaikan variabel dengan antares
+                        $("#humi").text(data.humidity); //sesuaikan variabel dengan antares
+                    },
+                    error: function(data) {
+                        $("#temp").text("NaN"); //sesuaikan variabel dengan antares
+                        $("#humi").text("NaN"); //sesuaikan variabel dengan antares
+                    }
+                });
+            }, 1000)
+        });
+    </script>
+    <title>VDG</title>
+</head>
+
+<body>
+<header>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <img id="EL1" src="/img/Ellipse 1.png">
+        <img id="EL4" src="/img/Ellipse 4.png">
+        <img id="EL3" src="/Img/Ellipse 3.png">
+        <img id="EL2" src="/Img/Ellipse 2.png">
+        <ul>
+            <li><img class="logo" href="#" src="Img/Logo.png" alt="logo"></li>
+            <li><button type="button">
+                    <p>Download CV</p>
+                </button></li>
+            <li><img src="Img/moon.png"  id="icon"></li>
+        </ul>
+    </nav>
+    <!-- NAVIGATION BAR END -->
+
+    <!-- CONTENT 1 -->
+    <div class="firstContent">
+        <h1>Welcome to our Website</h1>
+        <h2 id="data-temp">Tem:<span id="temp">null</span></h2>
+        <h2 id="data-humi">Hum:<span id="humi">null</span></h2>
+    </div>
+</header>
+    <!-- CONTENT 1 END -->
+
+    <!-- CONTENT 2 -->
+    <div class="contact-wrapper">
+        <div class="containers">
+            <div class="heading">
+                <h2>Our Team</h2>
+            </div>
+        </div>
+        <div class="container">
+            <hoverspace></hoverspace>
+            <shadow></shadow>
+            <div class="card">
+                <back></back>
+                <front></front>
+                <div class="content">
+                    <div class="photo"> <img src="/Img/D_Marsha.jpg"> </div>
+                    <div class="contents">
+                        <h3>Marshaniswah Syamsul<br></h3>
+                    </div>
+                </div>
+                <ul class="contact">
+                    <li style="--i:1">
+                        <a href="https://www.linkedin.com/in/marshaniswah-syamsul/"> <i class="fa-brands fa-linkedin"></i> </a>
+                    </li>
+                    <li style="--i:2">
+                        <a href="https://github.com/"> <i class="fab fa-github"></i></a>
+                    </li>
+                    <li style="--i:3">
+                        <a href="https://www.instagram.com/chacaniswah"> <i class="fab fa-instagram"></i> </a>
+                    </li>
+                    <li style="--i:4">
+                        <a href="https://wa.me/+6288258098757"><i class="fa-brands fa-whatsapp"></i> </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card">
+                <back></back>
+                <front></front>
+                <div class="content">
+                    <div class="photo"> <img src="/Img/ibee.jpg"> </div>
+                    <div class="contents">
+                        <h3>Muhammad<br>Ibrahim</h3>
+                    </div>
+                </div>
+                <ul class="contact">
+                    <li style="--i:1">
+                        <a href="https://www.linkedin.com/in/ibeaim/"> <i class="fa-brands fa-linkedin"></i> </a>
+                    </li>
+                    <li style="--i:2">
+                        <a href="https://github.com/ibeaim"> <i class="fab fa-github"></i> </a>
+                    </li>
+                    <li style="--i:3">
+                        <a href="https://www.instagram.com/elibrah_/"> <i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                    <li style="--i:4">
+                        <a href="https://wa.me/6285775356301"> <i class="fa-brands fa-whatsapp"></i> </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card">
+                <back></back>
+                <front></front>
+                <div class="content">
+                    <div class="photo"> <img src="/Img/Ressya.jpg"> </div>
+                    <div class="contents">
+                        <h3>Ressya Putri<br>Denanda</h3>
+                    </div>
+                </div>
+                <ul class="contact">
+                    <li style="--i:1">
+                        <a href="https://www.linkedin.com/in/ressya-putri-55a37a25a/"> <i
+                                class="fa-brands fa-linkedin"></i> </a>
+                    </li>
+                    <li style="--i:2">
+                        <a href="https://github.com/ressyaputridenanda"> <i class="fab fa-github"></i> </a>
+                    </li>
+                    <li style="--i:3">
+                        <a href="https://www.instagram.com/ressyaputridenanda/"> <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li style="--i:4">
+                        <a href="https://wa.me/6282119519233"> <i class="fa-brands fa-whatsapp"></i> </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card">
+                <back></back>
+                <front></front>
+                <div class="content">
+                    <div class="photo"> <img src="/Img/Risscha.jpeg"> </div>
+                    <div class="contents">
+                        <h3>Rischa<br>Zefaniya<br></h3>
+                    </div>
+                </div>
+                <ul class="contact">
+                    <li style="--i:1">
+                        <a href="https://www.linkedin.com/in/"> <i class="fa-brands fa-linkedin"></i> </a>
+                    </li>
+                    <li style="--i:2">
+                        <a href="https://github.com/rischazefaniya"> <i class="fab fa-github"></i> </a>
+                    </li>
+                    <li style="--i:3">
+                        <a href="https://www.instagram.com/rischasinulingga_"> <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li style="--i:4">
+                        <a href="https://wa.me/+6281269238173"> <i class="fa-brands fa-whatsapp"></i> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- CONTENT 2 END -->
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="foot">
+                <p>Copyright 2022 - Vasco De Gama</p>
+                <img src="Img/Footer.png">
+            </div>
+        </footer>
+        <!-- FOOTER END -->
+
+        <!-- SCRIPT -->
+        <script src="script.js"></script>
+        <!-- SCRIP -->
+</body>
+</html>
